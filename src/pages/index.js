@@ -14,6 +14,7 @@ import ProductServices from "@services/ProductServices";
 import ProductCard from "@components/product/ProductCard";
 import MainCarousel from "@components/carousel/MainCarousel";
 import FeatureCategory from "@components/category/FeatureCategory";
+import PromoBanners from "@components/banner/PromoBanners";
 import AttributeServices from "@services/AttributeServices";
 import CMSkeleton from "@components/preloader/CMSkeleton";
 
@@ -91,6 +92,13 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
               </div>
             )}
 
+            {/* promotional banners */}
+            <div className="bg-white lg:py-16 py-10">
+              <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
+                <PromoBanners />
+              </div>
+            </div>
+
             {/* popular products */}
             {storeCustomizationSetting?.home?.popular_products_status && (
               <div className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10">
@@ -152,7 +160,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
             {storeCustomizationSetting?.home?.delivery_status && (
               <div className="block mx-auto max-w-screen-2xl">
                 <div className="mx-auto max-w-screen-2xl px-4 sm:px-10">
-                  <div className="lg:p-16 p-6 bg-primary-600 shadow-sm border rounded-lg">
+                  <div className="lg:p-16 p-6 bg-secondary-200 shadow-sm border rounded-lg">
                     <CardTwo />
                   </div>
                 </div>

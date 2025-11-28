@@ -65,8 +65,8 @@ const ProductCard = ({ product, attributes }) => {
         />
       )}
 
-      <div className="group box-border overflow-hidden flex rounded-md shadow-sm pe-0 flex-col items-center bg-white relative">
-        <div className="w-full flex justify-between">
+      <div className="group box-border overflow-hidden flex rounded-md border border-gray-200 shadow-sm hover:shadow-lg pe-0 flex-col items-center bg-white relative transition-all duration-200">
+        <div className="w-full flex justify-between absolute top-2 left-0 z-10 px-2">
           <Stock product={product} stock={product.stock} card />
           <Discount product={product} />
         </div>
@@ -78,9 +78,9 @@ const ProductCard = ({ product, attributes }) => {
               `opened ${showingTranslateValue(product?.title)} product modal`
             );
           }}
-          className="relative flex justify-center cursor-pointer pt-2 w-full h-44"
+          className="relative flex justify-center cursor-pointer w-full h-48 bg-gray-50"
         >
-          <div className="relative w-full h-full p-2">
+          <div className="relative w-full h-full p-4">
             {product.image[0] ? (
               <ImageWithFallback src={product.image[0]} alt="product" />
             ) : (
@@ -97,19 +97,16 @@ const ProductCard = ({ product, attributes }) => {
             )}
           </div>
         </div>
-        <div className="w-full px-3 lg:px-4 pb-4 overflow-hidden">
-          <div className="relative mb-1">
-            <span className="text-gray-400 font-medium text-xs d-block mb-1">
-              {product.unit}
-            </span>
-            <h2 className="text-heading truncate mb-0 block text-sm font-medium text-gray-600">
+        <div className="w-full px-4 py-3 overflow-hidden border-t border-gray-100">
+          <div className="relative mb-2">
+            <h2 className="text-heading mb-1 block text-sm font-normal text-gray-700 hover:text-primary-500 transition-colors">
               <span className="line-clamp-2">
                 {showingTranslateValue(product?.title)}
               </span>
             </h2>
           </div>
 
-          <div className="flex justify-between items-center text-heading text-sm sm:text-base space-s-2 md:text-base lg:text-xl">
+          <div className="flex flex-col gap-2">
             <Price
               card
               product={product}
@@ -133,18 +130,18 @@ const ProductCard = ({ product, attributes }) => {
                     item.id === product._id && (
                       <div
                         key={item.id}
-                        className="h-9 w-auto flex flex-wrap items-center justify-evenly py-1 px-2 bg-primary-500 text-white rounded"
+                        className="h-9 w-full flex items-center justify-center gap-3 py-1 px-3 bg-primary-600 text-white rounded"
                       >
                         <button
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity - 1)
                           }
                         >
-                          <span className="text-dark text-base">
+                          <span className="text-white text-base">
                             <IoRemove />
                           </span>
                         </button>
-                        <p className="text-sm text-dark px-1 font-serif font-semibold">
+                        <p className="text-sm text-white px-1 font-semibold">
                           {item.quantity}
                         </p>
                         <button
@@ -154,7 +151,7 @@ const ProductCard = ({ product, attributes }) => {
                               : handleIncreaseQuantity(item)
                           }
                         >
-                          <span className="text-dark text-base">
+                          <span className="text-white text-base">
                             <IoAdd />
                           </span>
                         </button>
@@ -166,12 +163,12 @@ const ProductCard = ({ product, attributes }) => {
               <button
                 onClick={() => handleAddItem(product)}
                 aria-label="cart"
-                className="h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-primary-500 hover:border-primary-500 hover:bg-primary-500 hover:text-white transition-all"
+                className="h-9 w-full flex items-center justify-center gap-2 border border-gray-300 rounded text-sm font-medium text-gray-700 hover:border-primary-600 hover:bg-primary-600 hover:text-white transition-all uppercase"
               >
-                {" "}
-                <span className="text-xl">
+                <span className="text-base">
                   <IoBagAddSharp />
-                </span>{" "}
+                </span>
+                <span>Add to Cart</span>
               </button>
             )}
           </div>
