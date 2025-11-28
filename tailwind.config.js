@@ -40,8 +40,14 @@ module.exports = {
           900: "#1a0908",
         },
         secondary: {
-          DEFAULT: "#2d2651", // Secondary red
+          DEFAULT: "#2d2651", // Secondary purple
+          100: "#f5f3f9", // Very light purple
+          200: "#e3dff0", // Light purple
+          300: "#a89fc9", // Medium light purple
+          400: "#6d5f99", // Medium purple
           500: "#2d2651",
+          600: "#2d2651", // Main secondary color
+          700: "#241f41", // Darker shade for hover states
         },
       },
       height: {

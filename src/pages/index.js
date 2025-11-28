@@ -41,26 +41,20 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
           <div className="min-h-screen">
             <StickyCart />
             <div className="bg-white">
-              {/* Full-width hero slider */}
-              <div className="mx-auto max-w-screen-2xl px-3 sm:px-6">
-                <MainCarousel />
-              </div>
-
-              {/* Promotional cards section */}
-              <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 py-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                  {/* Offer cards - takes 2 columns on large screens */}
-                  <div className="lg:col-span-2">
+              <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
+                <div className="flex w-full">
+                  <div className="flex-shrink-0 xl:pr-6 lg:block w-full lg:w-3/5">
+                    <MainCarousel />
+                  </div>
+                  <div className="w-full hidden lg:flex">
                     <OfferCard />
                   </div>
-
-                  {/* Promotion banner - takes 1 column */}
-                  {storeCustomizationSetting?.home?.promotion_banner_status && (
-                    <div className="bg-orange-100 px-6 py-6 rounded-lg flex items-center">
-                      <Banner />
-                    </div>
-                  )}
                 </div>
+                {storeCustomizationSetting?.home?.promotion_banner_status && (
+                  <div className="bg-secondary-200 px-10 py-6 rounded-lg mt-6">
+                    <Banner />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -158,7 +152,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
             {storeCustomizationSetting?.home?.delivery_status && (
               <div className="block mx-auto max-w-screen-2xl">
                 <div className="mx-auto max-w-screen-2xl px-4 sm:px-10">
-                  <div className="lg:p-16 p-6 bg-primary-500 shadow-sm border rounded-lg">
+                  <div className="lg:p-16 p-6 bg-primary-600 shadow-sm border rounded-lg">
                     <CardTwo />
                   </div>
                 </div>

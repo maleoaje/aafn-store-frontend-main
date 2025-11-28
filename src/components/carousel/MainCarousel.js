@@ -104,19 +104,18 @@ const MainCarousel = () => {
   return (
     <>
       <Swiper
-        spaceBetween={0}
+        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        speed={600}
+        speed={1000}
         loop={true}
         pagination={
           (storeCustomizationSetting?.slider?.bottom_dots ||
             storeCustomizationSetting?.slider?.both_slider) && {
             clickable: true,
-            dynamicBullets: true,
           }
         }
         navigation={
@@ -126,43 +125,36 @@ const MainCarousel = () => {
           }
         }
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[400px] sm:h-[500px] md:h-[550px] lg:h-[600px]"
+        className="mySwiper"
       >
         {sliderData?.map((item, i) => (
           <SwiperSlide
-            className="h-full relative overflow-hidden bg-white"
+            className="h-full relative rounded-lg overflow-hidden"
             key={i + 1}
           >
-            <div className="flex flex-col md:flex-row items-center justify-between h-full px-4 sm:px-6 lg:px-8 py-4 lg:py-0">
-              {/* Left side - Image */}
-              <div className="w-full md:w-3/5 h-96 md:h-full relative flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  <Image
-                    fill
-                    src={item.image || "/slider/slider-1.jpg"}
-                    alt={item.title}
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 60vw"
-                    quality={90}
-                    priority
-                  />
-                </div>
-              </div>
-
-              {/* Right side - Content */}
-              <div className="w-full md:w-2/5 flex flex-col justify-center items-start md:pl-4 lg:pl-6 mt-6 md:mt-0">
-                <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-2">
-                  {item.info}
-                </p>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5">
+            <div className="text-sm text-gray-600 hover:text-emerald-dark">
+              <Image
+                width={950}
+                height={400}
+                src={item.image || "/slider/slider-1.jpg"}
+                alt={item.title}
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="absolute top-0 left-0 z-10 p-r-16 flex-col flex w-full h-full place-items-start justify-center">
+              <div className="pl-4 pr-12 sm:pl-10 sm:pr-16 w-10/12 lg:w-8/12 xl:w-7/12">
+                <h1 className="mb-2 font-serif text-xl sm:text-lg md:text-2xl line-clamp-1 md:line-clamp-none  lg:line-clamp-none  lg:text-3xl font-bold text-gray-800">
                   {item.title}
                 </h1>
+                <p className="text-base leading-6 text-gray-600 font-sans line-clamp-1  md:line-clamp-none lg:line-clamp-none">
+                  {item.info}
+                </p>
                 <Link
                   href={item.url}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold px-6 py-2.5 lg:px-8 lg:py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-all duration-300 uppercase tracking-wide"
+                  className="hidden sm:inline-block lg:inline-block text-sm leading-6 font-serif font-medium mt-6 px-6 py-2 bg-primary-600 text-center rounded-md text-white hover:bg-primary-700"
                 >
                   {item.buttonName}
-                  <span className="text-base">→</span>
                 </Link>
               </div>
             </div>
