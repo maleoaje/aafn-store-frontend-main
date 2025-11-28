@@ -97,24 +97,27 @@ const Navbar = () => {
             <Link href="/" className="flex-shrink-0 mr-8">
               <div className="text-white">
                 {storeCustomizationSetting?.navbar?.logo ? (
-                  <div className="relative w-40 h-10">
+                  <div className="relative w-20 h-15">
                     <Image
                       width="0"
                       height="0"
-                      sizes="100vw"
+                      sizes="50vw"
                       className="w-full h-auto"
                       priority
-                      src={storeCustomizationSetting?.navbar?.logo}
+                      src={
+                        // storeCustomizationSetting?.navbar?.logo
+"/logo/aafn-logo-white-250w.png"
+                      }
                       alt="logo"
                     />
                   </div>
                 ) : (
                   <div className="flex flex-col">
                     <span className="text-xl font-bold tracking-tight">
-                      GOSTORE
+                      ALL AMERICAN
                     </span>
                     <span className="text-xs tracking-widest -mt-1">
-                      ELECTRONICS
+                      FOOD NETWORK
                     </span>
                   </div>
                 )}

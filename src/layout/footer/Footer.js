@@ -273,24 +273,19 @@ const Footer = () => {
             <div className="pb-3.5 sm:pb-0 col-span-1 md:col-span-2 lg:col-span-3">
               <Link
                 href="/"
-                className="mr-3 lg:mr-12 xl:mr-12"
+                className="mr-3 lg:mr-12 xl:mr-12 inline-block mb-3"
                 rel="noreferrer"
               >
-                <div className="relative w-32 h-10">
-                  <Image
-                    // width={110}
-                    // height={40}
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-full h-auto"
-                    src={
-                      storeCustomizationSetting?.footer?.block4_logo ||
-                      "/logo/logo-color.svg"
-                    }
-                    alt="logo"
-                  />
-                </div>
+                <Image
+                  width={80}
+                  height={10}
+                  className="w-auto h-auto max-w-[150px]"
+                  src={
+                    // storeCustomizationSetting?.footer?.block4_logo ||
+                    "/logo/logo-all-american-food-network.png"
+                  }
+                  alt="logo"
+                />
               </Link>
               <p className="leading-7 font-sans text-sm text-gray-600 mt-3">
                 <CMSkeleton
