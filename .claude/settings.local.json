@@ -12,7 +12,17 @@
       "Bash(git push:*)",
       "Bash(git remote set-url:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(sshpass -p 'u##z3U!8GxN@Dyq' ssh -o StrictHostKeyChecking=no root@159.203.139.181 'node --version && npm --version && which pm2 && which nginx && which git')",
+      "Bash(brew install:*)",
+      "Bash(chmod:*)",
+      "Bash(/tmp/deploy_quick.sh)",
+      "Bash(cat:*)",
+      "Bash(rsync:*)",
+      "Bash(sshpass:*)",
+      "Bash(npm run build:*)",
+      "Bash(/tmp/replace_branding.sh)",
+      "Bash(/tmp/update_backend.sh)"
     ],
     "deny": [],
     "ask": []

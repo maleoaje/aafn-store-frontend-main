@@ -32,6 +32,7 @@ const BottomNavigation = ({ or, route, desc, pageName, loginTitle }) => {
 
       {!error && !isLoading && (
         <div className="flex flex-col mb-4">
+          {/* Temporarily disabled Google login until domain is configured
           {storeSetting?.google_login_status && (
             <button
               onClick={() =>
@@ -48,6 +49,7 @@ const BottomNavigation = ({ or, route, desc, pageName, loginTitle }) => {
               <span className="ml-2">{loginTitle} With Google</span>
             </button>
           )}
+          */}
           {storeSetting?.facebook_login_status && (
             <button
               onClick={() =>

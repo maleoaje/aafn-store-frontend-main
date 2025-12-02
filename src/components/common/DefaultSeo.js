@@ -11,7 +11,7 @@ const DefaultSeo = () => {
     <NextSeo
       title={
         globalSetting?.meta_title ||
-        "All American Foods Network - React Grocery & Organic Food Store e-commerce Template"
+        "All American Foods Network "
       }
       openGraph={{
         type: "website",
@@ -19,7 +19,7 @@ const DefaultSeo = () => {
         url: globalSetting?.meta_url || "https://allamericanfoodsnetwork.com/",
         site_name:
           globalSetting?.meta_title ||
-          "All American Foods Network - React Grocery & Organic Food Store e-commerce Template",
+          "All American Foods Network",
       }}
       twitter={{
         handle: "@handle",
