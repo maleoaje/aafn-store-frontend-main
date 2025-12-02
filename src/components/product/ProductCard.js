@@ -78,7 +78,7 @@ const ProductCard = ({ product, attributes }) => {
               `opened ${showingTranslateValue(product?.title)} product modal`
             );
           }}
-          className="relative flex justify-center cursor-pointer w-full h-48 bg-gray-50"
+          className="relative flex justify-center cursor-pointer w-full h-64 bg-gray-50"
         >
           <div className="relative w-full h-full p-4">
             {product.image[0] ? (
@@ -97,7 +97,7 @@ const ProductCard = ({ product, attributes }) => {
             )}
           </div>
         </div>
-        <div className="w-full px-4 py-3 overflow-hidden border-t border-gray-100">
+        <div className="w-full px-4 py-4 overflow-hidden border-t border-gray-100">
           <div className="relative mb-2">
             <h2 className="text-heading mb-1 block text-sm font-normal text-gray-700 hover:text-primary-500 transition-colors">
               <span className="line-clamp-2">

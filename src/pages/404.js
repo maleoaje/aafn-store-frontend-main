@@ -18,9 +18,9 @@ const NotFound = () => {
   return (
     <>
       <Head>
-        <title>KachaBazar | 404</title>
+        <title>All American Foods Network | 404</title>
         <meta name="description" content="This is page not found 404 page" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="px-6 py-10 lg:py-20 bg-primary-50 h-screen flex flex-wrap content-center">
         <div className="block justify-items-stretch mx-auto items-center text-center">

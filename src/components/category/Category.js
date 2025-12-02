@@ -5,7 +5,6 @@ import { IoClose } from "react-icons/io5";
 import { useQuery } from "@tanstack/react-query";
 
 //internal import
-import { pages } from "@utils/data";
 import Loading from "@components/preloader/Loading";
 import { SidebarContext } from "@context/SidebarContext";
 import CategoryServices from "@services/CategoryServices";
@@ -27,13 +26,13 @@ const Category = () => {
   return (
     <div className="flex flex-col w-full h-full bg-white cursor-pointer scrollbar-hide">
       {categoryDrawerOpen && (
-        <div className="w-full flex justify-between items-center h-16 px-6 py-4 bg-primary-500 text-white border-b border-gray-100">
+        <div className="w-full flex justify-between items-center h-40 px-6 py-4 bg-primary-500 text-white border-b border-gray-100">
           <h2 className="font-semibold font-serif text-lg m-0 text-heading flex align-center">
             <Link href="/" className="mr-10">
               <Image
                 width={100}
                 height={38}
-                src="/logo/logo-color.svg"
+                src="/logo/logo-color.png"
                 alt="logo"
               />
             </Link>
@@ -73,30 +72,7 @@ const Category = () => {
           </div>
         )}
 
-        {categoryDrawerOpen && (
-          <div className="relative grid gap-2 mt-5">
-            <h3 className="font-semibold font-serif text-lg m-0 text-heading flex align-center border-b px-8 py-3">
-              Pages
-            </h3>
-            <div className="relative grid gap-1 p-6">
-              {pages.map((item) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  className="p-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-primary-600"
-                >
-                  <item.icon
-                    className="flex-shrink-0 h-4 w-4"
-                    aria-hidden="true"
-                  />
-                  <p className="inline-flex items-center justify-between ml-2 text-sm font-medium w-full hover:text-primary-600">
-                    {item.title}
-                  </p>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Pages section removed */}
       </div>
     </div>
   );

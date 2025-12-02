@@ -12,9 +12,12 @@ import StickyCart from "@components/cart/StickyCart";
 import Loading from "@components/preloader/Loading";
 import ProductServices from "@services/ProductServices";
 import ProductCard from "@components/product/ProductCard";
-import MainCarousel from "@components/carousel/MainCarousel";
+import HeroSlider from "@components/carousel/HeroSlider";
+import CategorySlider from "@components/category/CategorySlider";
 import FeatureCategory from "@components/category/FeatureCategory";
 import PromoBanners from "@components/banner/PromoBanners";
+import SubscriptionBanner from "@components/banner/SubscriptionBanner";
+import ProductShowcase from "@components/product/ProductShowcase";
 import AttributeServices from "@services/AttributeServices";
 import CMSkeleton from "@components/preloader/CMSkeleton";
 
@@ -41,69 +44,16 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
         <Layout>
           <div className="min-h-screen">
             <StickyCart />
-            <div className="bg-white">
-              <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
-                <div className="flex w-full">
-                  <div className="flex-shrink-0 xl:pr-6 lg:block w-full lg:w-3/5">
-                    <MainCarousel />
-                  </div>
-                  <div className="w-full hidden lg:flex">
-                    <OfferCard />
-                  </div>
-                </div>
-                {storeCustomizationSetting?.home?.promotion_banner_status && (
-                  <div className="bg-secondary-200 px-10 py-6 rounded-lg mt-6">
-                    <Banner />
-                  </div>
-                )}
-              </div>
-            </div>
+            <HeroSlider />
 
-            {/* feature category's */}
-            {storeCustomizationSetting?.home?.featured_status && (
-              <div className="bg-gray-100 lg:py-16 py-10">
-                <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
-                  <div className="mb-10 flex justify-center">
-                    <div className="text-center w-full lg:w-2/5">
-                      <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
-                        <CMSkeleton
-                          count={1}
-                          height={30}
-                          loading={loading}
-                          data={storeCustomizationSetting?.home?.feature_title}
-                        />
-                      </h2>
-                      <p className="text-base font-sans text-gray-600 leading-6">
-                        <CMSkeleton
-                          count={4}
-                          height={10}
-                          error={error}
-                          loading={loading}
-                          data={
-                            storeCustomizationSetting?.home?.feature_description
-                          }
-                        />
-                      </p>
-                    </div>
-                  </div>
-
-                  <FeatureCategory />
-                </div>
-              </div>
-            )}
-
-            {/* promotional banners */}
-            <div className="bg-white lg:py-16 py-10">
-              <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
-                <PromoBanners />
-              </div>
-            </div>
+            {/* Category Slider */}
+            <CategorySlider />
 
             {/* popular products */}
             {storeCustomizationSetting?.home?.popular_products_status && (
               <div className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10">
-                <div className="mb-10 flex justify-center">
-                  <div className="text-center w-full lg:w-2/5">
+                <div className="mb-10">
+                  <div className="w-full">
                     <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                       <CMSkeleton
                         count={1}
@@ -135,13 +85,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                         loading={loading}
                       />
                     ) : (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-6">
                         {popularProducts
-                          ?.slice(
-                            0,
-                            storeCustomizationSetting?.home
-                              ?.popular_product_limit
-                          )
+                          ?.slice(0, 16)
                           .map((product) => (
                             <ProductCard
                               key={product._id}
@@ -156,26 +102,56 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
               </div>
             )}
 
-            {/* promotional banner card */}
-            {storeCustomizationSetting?.home?.delivery_status && (
-              <div className="block mx-auto max-w-screen-2xl">
-                <div className="mx-auto max-w-screen-2xl px-4 sm:px-10">
-                  <div className="lg:p-16 p-6 bg-secondary-200 shadow-sm border rounded-lg">
-                    <CardTwo />
+            {/* feature category's */}
+            {/* Hidden for now */}
+            {/* {storeCustomizationSetting?.home?.featured_status && (
+              <div className="bg-gray-100 lg:py-16 py-10">
+                <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
+                  <div className="mb-10">
+                    <div className="w-full">
+                      <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
+                        <CMSkeleton
+                          count={1}
+                          height={30}
+                          loading={loading}
+                          data={storeCustomizationSetting?.home?.feature_title}
+                        />
+                      </h2>
+                      <p className="text-base font-sans text-gray-600 leading-6">
+                        <CMSkeleton
+                          count={4}
+                          height={10}
+                          error={error}
+                          loading={loading}
+                          data={
+                            storeCustomizationSetting?.home?.feature_description
+                          }
+                        />
+                      </p>
+                    </div>
                   </div>
+
+                  <FeatureCategory />
                 </div>
               </div>
-            )}
+            )} */}
+
+            {/* product showcase */}
+            <ProductShowcase
+              popularProducts={popularProducts}
+              discountProducts={discountProducts}
+              attributes={attributes}
+            />
 
             {/* discounted products */}
-            {storeCustomizationSetting?.home?.discount_product_status &&
+            {/* {storeCustomizationSetting?.home?.discount_product_status &&
               discountProducts?.length > 0 && (
                 <div
                   id="discount"
                   className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10"
                 >
-                  <div className="mb-10 flex justify-center">
-                    <div className="text-center w-full lg:w-2/5">
+                  <div className="mb-10">
+                    <div className="w-full">
                       <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                         <CMSkeleton
                           count={1}
@@ -210,13 +186,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                           loading={loading}
                         />
                       ) : (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-6">
                           {discountProducts
-                            ?.slice(
-                              0,
-                              storeCustomizationSetting?.home
-                                ?.latest_discount_product_limit
-                            )
+                            ?.slice(0, 8)
                             .map((product) => (
                               <ProductCard
                                 key={product._id}
@@ -229,7 +201,21 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
+
+            {/* promotional banners */}
+            {/* <div className="bg-white lg:py-16 py-10">
+              <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
+                <PromoBanners />
+              </div>
+            </div> */}
+
+            {/* subscription banner */}
+            <div className="bg-white pb-10 lg:pb-16">
+              <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
+                <SubscriptionBanner />
+              </div>
+            </div>
           </div>
         </Layout>
       )}

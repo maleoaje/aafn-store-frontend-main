@@ -45,8 +45,8 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
                 <Image
                   width={110}
                   height={40}
-                  src="/logo/logo-color.svg"
-                  alt="logo"
+                  src="/logo/logo-all-american-food-network.png"
+                  alt="All American Foods Network Logo"
                 />
               </Link>
             </h2>

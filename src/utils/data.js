@@ -2,7 +2,6 @@ import {
   // FiUser,
   FiGift,
   FiGrid,
-  FiAlertCircle,
   FiHelpCircle,
   FiTruck,
   FiPhoneCall,
@@ -25,44 +24,39 @@ const pages = [
   //   icon: FiUser,
   // },
   {
-    title: "offer-page",
+    title: "Offers",
     href: "/offer",
     icon: FiGift,
   },
   {
-    title: "checkout-page",
+    title: "Checkout",
     href: "/checkout",
     icon: FiShoppingBag,
   },
   {
-    title: "faq-page",
+    title: "FAQ",
     href: "/faq",
     icon: FiHelpCircle,
   },
   {
-    title: "about-us-page",
+    title: "About Us",
     href: "/about-us",
     icon: FiUsers,
   },
   {
-    title: "contact-us-page",
+    title: "Contact Us",
     href: "/contact-us",
     icon: FiPhoneIncoming,
   },
   {
-    title: "privacy-policy-page",
+    title: "Privacy Policy",
     href: "/privacy-policy",
     icon: FiPocket,
   },
   {
-    title: "terms-and-conditions-page",
+    title: "Terms & Conditions",
     href: "/terms-and-conditions",
     icon: FiFileText,
-  },
-  {
-    title: "not-found-page",
-    href: "/404",
-    icon: FiAlertCircle,
   },
 ];
 
@@ -89,53 +83,15 @@ const userSidebar = [
   },
 ];
 
-const sliderData = [
-  {
-    id: 1,
-    title: "Slider1Title",
-    info: "Slider1description",
-    url: "/search?Category=biscuits--cakes",
-    image: "/slider/slider-1.jpg",
-  },
-  {
-    id: 2,
-    title: "Slider2Title",
-    info: "Slider2description",
-    url: "/search?Category=fish--meat",
-    image: "/slider/slider-2.jpg",
-  },
-  {
-    id: 3,
-    title: "Slider3Title",
-    info: "Slider3description",
-    url: "/search?category=fresh-vegetable",
-    image: "/slider/slider-3.jpg",
-  },
-];
+// Removed hardcoded categories - sliders now use database settings via storeCustomizationSetting
+// HeroSlider and MainCarousel components fetch from database, not from these hardcoded arrays
+// const sliderData = [...];
+// const ctaCardData = [...];
 
-const ctaCardData = [
-  {
-    id: 1,
-    title: "Taste of",
-    subTitle: "Fresh & Natural",
-    image: "/cta/cta-bg-1.jpg",
-    url: "/search?category=fresh-vegetable",
-  },
-  {
-    id: 2,
-    title: "Taste of",
-    subTitle: "Fish & Meat",
-    image: "/cta/cta-bg-2.jpg",
-    url: "/search?Category=fish--meat",
-  },
-  {
-    id: 3,
-    title: "Taste of",
-    subTitle: "Bread & Bakery",
-    image: "/cta/cta-bg-3.jpg",
-    url: "/search?Category=biscuits--cakes",
-  },
-];
+// If you need these for reference, they were:
+// - biscuits--cakes
+// - fish--meat
+// - fresh-vegetable
 
 const featurePromo = [
   {
@@ -170,7 +126,7 @@ const contactData = [
     title: "contact-page-box1-title",
     info: "contact-page-box1-info",
     icon: FiMail,
-    contact: "kachabazar@gmail.com",
+    contact: "info@allamericanfoodsnetwork.com",
     className: "bg-primary-100",
   },
   {
@@ -194,8 +150,8 @@ const contactData = [
 export {
   pages,
   userSidebar,
-  sliderData,
-  ctaCardData,
+  // sliderData, // Removed - now using database
+  // ctaCardData, // Removed - now using database
   featurePromo,
   contactData,
 };

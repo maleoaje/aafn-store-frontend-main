@@ -29,8 +29,8 @@ export const getDynamicAuthOptions = async () => {
 
   const providers = [
     Google({
-      clientId: storeSetting?.google_id || "",
-      clientSecret: storeSetting?.google_secret || "",
+      clientId: storeSetting?.google_id || process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: storeSetting?.google_secret || process.env.GOOGLE_CLIENT_SECRET || "",
     }),
     GitHub({
       clientId: storeSetting?.github_id || "",

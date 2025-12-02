@@ -125,10 +125,10 @@ const Navbar = () => {
             </Link>
 
             {/* Search Bar with Category Dropdown */}
-            <div className="flex-1 max-w-3xl mx-8">
+            <div className="flex-1 max-w-3xl mx-2 sm:mx-4 lg:mx-8">
               <form onSubmit={handleSubmit} className="relative flex">
-                {/* Category Dropdown */}
-                <div className="relative">
+                {/* Category Dropdown - Hidden on mobile */}
+                <div className="relative hidden md:block">
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
@@ -149,14 +149,14 @@ const Navbar = () => {
                 <input
                   onChange={(e) => setSearchText(e.target.value)}
                   value={searchText}
-                  className="flex-1 h-11 px-4 text-sm border-none focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="flex-1 h-11 px-4 text-sm border-none focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-l-md md:rounded-l-none"
                   placeholder={t("search-placeholder")}
                 />
 
                 {/* Search Button */}
                 <button
                   type="submit"
-                  className="h-11 px-6 bg-primary-500 hover:bg-primary-600 text-white rounded-r-md transition-colors flex items-center justify-center"
+                  className="h-11 px-4 sm:px-6 bg-primary-500 hover:bg-primary-600 text-white rounded-r-md transition-colors flex items-center justify-center"
                   aria-label="Search"
                 >
                   <IoSearchOutline className="w-5 h-5" />

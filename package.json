@@ -1,8 +1,8 @@
 {
-  "name": "kachabazar-store",
+  "name": "aafn-store",
   "version": "0.1.0",
-  "description": "this is kachabazar-store built with next.js and tailwindcss",
-  "homepage": "https://kachabazar-store.vercel.app/",
+  "description": "All American Foods Network store built with next.js and tailwindcss",
+  "homepage": "https://allamericanfoodsnetwork.com/",
   "private": true,
   "scripts": {
     "dev": "next dev",

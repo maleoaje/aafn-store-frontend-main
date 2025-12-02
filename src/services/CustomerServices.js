@@ -46,7 +46,7 @@ const CustomerServices = {
 
   addShippingAddress: async ({ userId = "", shippingAddressData }) => {
     return requests.post(
-      `customer/shipping/address/${userId}`,
+      `/customer/shipping/address/${userId}`,
       shippingAddressData
     );
   },

@@ -41,7 +41,7 @@ const BottomNavigation = ({ or, route, desc, pageName, loginTitle }) => {
                 })
               }
               className={
-                buttonStyles + "bg-green-600 text-white hover:bg-green-700"
+                buttonStyles + "bg-[#2d2651] text-white hover:bg-[#1f1a3a]"
               }
             >
               <ImGoogle className="text-2xl" />

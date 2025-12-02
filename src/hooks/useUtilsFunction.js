@@ -3,7 +3,9 @@ import Cookies from "js-cookie";
 import useGetSetting from "./useGetSetting";
 
 const useUtilsFunction = () => {
-  const lang = Cookies.get("_lang");
+  // Force English-only language
+  const lang = "en";
+  Cookies.set("_lang", "en", { sameSite: "None", secure: true });
 
   const { globalSetting } = useGetSetting();
 
@@ -32,11 +34,19 @@ const useUtilsFunction = () => {
     return parseFloat(value || 0).toFixed(globalSetting?.floating_number || 2);
   };
 
-  //for translation
+  //for translation - English only
   const showingTranslateValue = (data) => {
-    return data !== undefined && Object?.keys(data).includes(lang)
-      ? data[lang]
-      : data?.en;
+    if (data === undefined) return undefined;
+
+    // If data is already a string, return it
+    if (typeof data === 'string') return data;
+
+    // If data is an object, ONLY return English or en values
+    if (typeof data === 'object' && data !== null) {
+      return data?.English || data?.en || '';
+    }
+
+    return '';
   };
 
   const showingImage = (data) => {

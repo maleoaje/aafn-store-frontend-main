@@ -35,7 +35,7 @@ const CategoryScrollBar = () => {
   // Helper function to create category URL slug
   const getCategoryUrl = (category) => {
     const categoryName = showingTranslateValue(category?.name);
-    const category_name = categoryName
+    const category_name = (categoryName || "")
       .toLowerCase()
       .replace(/[^A-Z0-9]+/gi, "-");
     return `/search?category=${category_name}&_id=${category._id}`;

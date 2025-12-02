@@ -288,8 +288,8 @@ const InvoiceForDownload = ({
                 }}
               >
                 <Image
-                  src="https://res.cloudinary.com/ahossain/image/upload/v1681454665/logo/logo-color_qw1trc.png"
-                  alt="Invoice"
+                  src="/logo/logo-all-american-food-network.png"
+                  alt="All American Foods Network Invoice"
                   style={{ width: 80, textAlign: "right" }}
                 />
               </Text>

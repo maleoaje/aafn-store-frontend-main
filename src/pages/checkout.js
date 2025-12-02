@@ -217,12 +217,11 @@ const Checkout = () => {
                       )}
                     />
                     <div className="grid grid-cols-6 gap-6">
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6">
                         <InputShipping
                           currency={currency}
                           handleShippingCost={handleShippingCost}
                           register={register}
-                          // value="FedEx"
                           value={showingTranslateValue(
                             storeCustomizationSetting?.checkout
                               ?.shipping_name_two
@@ -231,37 +230,7 @@ const Checkout = () => {
                             storeCustomizationSetting?.checkout
                               ?.shipping_one_desc
                           )}
-                          // time="Today"
-                          cost={
-                            Number(
-                              storeCustomizationSetting?.checkout
-                                ?.shipping_one_cost
-                            ) || 60
-                          }
-                        />
-                        <Error errorName={errors.shippingOption} />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <InputShipping
-                          currency={currency}
-                          handleShippingCost={handleShippingCost}
-                          register={register}
-                          value={showingTranslateValue(
-                            storeCustomizationSetting?.checkout
-                              ?.shipping_name_two
-                          )}
-                          description={showingTranslateValue(
-                            storeCustomizationSetting?.checkout
-                              ?.shipping_two_desc
-                          )}
-                          // time="7 Days"
-                          cost={
-                            Number(
-                              storeCustomizationSetting?.checkout
-                                ?.shipping_two_cost
-                            ) || 20
-                          }
+                          cost={0}
                         />
                         <Error errorName={errors.shippingOption} />
                       </div>
@@ -280,7 +249,7 @@ const Checkout = () => {
                         <p className="text-red-400 text-sm mt-1">{error}</p>
                       </div>
                     )}
-                    <div className="grid sm:grid-cols-3 grid-cols-1 gap-4">
+                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
                       {storeSetting?.cod_status && (
                         <div className="">
                           <InputPayment
@@ -306,19 +275,6 @@ const Checkout = () => {
                           <Error errorMessage={errors.paymentMethod} />
                         </div>
                       )}
-
-                      {/* {storeSetting?.razorpay_status && ( */}
-                      <div className="">
-                        <InputPayment
-                          setShowCard={setShowCard}
-                          register={register}
-                          name="RazorPay"
-                          value="RazorPay"
-                          Icon={ImCreditCard}
-                        />
-                        <Error errorMessage={errors.paymentMethod} />
-                      </div>
-                      {/* )} */}
                     </div>
                   </div>
 

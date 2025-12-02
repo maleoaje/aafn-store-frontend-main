@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 //internal import
 import Layout from "@layout/Layout";
 import useFilter from "@hooks/useFilter";
-import Card from "@components/cta-card/Card";
+// import Card from "@components/cta-card/Card"; // Removed - used hardcoded categories
 import Loading from "@components/preloader/Loading";
 import ProductServices from "@services/ProductServices";
 import ProductCard from "@components/product/ProductCard";
@@ -30,9 +30,10 @@ const Search = ({ products, attributes }) => {
         <div className="flex py-10 lg:py-12">
           <div className="flex w-full">
             <div className="w-full">
-              <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
+              {/* Removed CTA cards with hardcoded categories */}
+              {/* <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
                 <Card />
-              </div>
+              </div> */}
               <div className="relative">
                 <CategoryCarousel />
               </div>
@@ -120,10 +121,20 @@ export const getServerSideProps = async (context) => {
     AttributeServices.getShowingAttributes({}),
   ]);
 
+  // Fallback: If category has no products, show all products instead
+  let products = data?.products || [];
+  if (_id && products.length === 0) {
+    const fallbackData = await ProductServices.getShowingStoreProducts({
+      category: "",
+      title: "",
+    });
+    products = fallbackData?.products || [];
+  }
+
   return {
     props: {
       attributes,
-      products: data?.products,
+      products,
     },
   };
 };

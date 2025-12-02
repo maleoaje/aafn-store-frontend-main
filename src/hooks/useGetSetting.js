@@ -7,7 +7,9 @@ import SettingServices from "@services/SettingServices";
 import { storeCustomization } from "@utils/storeCustomizationSetting";
 
 const useGetSetting = () => {
-  const lang = Cookies.get("_lang");
+  // Force English-only language
+  const lang = "en";
+  Cookies.set("_lang", "en", { sameSite: "None", secure: true });
   const [storeCustomizationSetting, setStoreCustomizationSetting] =
     useState(storeCustomization);
 
@@ -39,14 +41,7 @@ const useGetSetting = () => {
     } else {
       setStoreCustomizationSetting(storeCustomization);
     }
-
-    if (!lang) {
-      Cookies.set("_lang", "en", {
-        sameSite: "None",
-        secure: true,
-      });
-    }
-  }, [data, isFetched, lang]);
+  }, [data, isFetched]);
 
   return {
     lang,

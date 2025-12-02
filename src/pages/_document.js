@@ -23,12 +23,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href={setting?.favicon || "/favicon.png"} />
+          <link rel="icon" href={setting?.favicon || "/favicon.ico"} />
           <meta
             property="og:title"
             content={
               setting?.meta_title ||
-              "KachaBazar - React Grocery & Organic Food Store e-commerce Template"
+              "All American Foods Network - React Grocery & Organic Food Store e-commerce Template"
             }
           />
           <meta property="og:type" content="eCommerce Website" />
@@ -46,7 +46,7 @@ class MyDocument extends Document {
           <meta
             property="og:url"
             content={
-              setting?.meta_url || "https://kachabazar-store.vercel.app/"
+              setting?.meta_url || "https://allamericanfoodsnetwork.com/"
             }
           />
           <meta
